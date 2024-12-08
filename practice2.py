@@ -1,0 +1,27 @@
+values_list = [10, 3.14, "Hello", False, [1, 2, 3], {1: "a", 2: "b"}, (4, 5), None, 100, "World"]
+
+types_list = []
+for i in values_list:  
+    types_list.append(type(i))  
+
+types_count = {}
+for t in types_list: 
+    if t not in types_count:  
+        types_count[t] = 1  
+    else:
+        types_count[t] += 1 
+
+def find_most_frequent_type(count_dict):
+    max_type = None
+    max_count = 0
+    for key in count_dict:  
+        if count_dict[key] > max_count:  
+            max_count = count_dict[key]
+            max_type = key
+    return max_type
+
+most_frequent_type = find_most_frequent_type(types_count)
+
+print("Список значень:", values_list)
+print("Список типів:", types_list)
+print("Найпоширеніший тип даних:", most_frequent_type)
